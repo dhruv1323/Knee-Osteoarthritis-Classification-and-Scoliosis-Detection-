@@ -16,12 +16,6 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.cust-img{
+    background-image: url(https://i.pinimg.com/564x/b1/c9/0e/b1c90ecbd32e1f966c28e79aad0c6879.jpg);
 }
