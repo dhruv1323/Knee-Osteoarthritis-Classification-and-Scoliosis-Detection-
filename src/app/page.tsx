@@ -22,7 +22,7 @@ export default function Home() {
                     className='mb-4'
                   />
                   <h3 className='text-2xl mb-4'>Scoliosis</h3>
-                  <p className='text-wrap mb-4'>Scoliosis is a condition where the spine curves abnormally, forming an "S" or "C" shape. It can be congenital, idiopathic (unknown cause), neuromuscular, or degenerative. Common signs include uneven shoulders or hips. </p>
+                  <p className='text-wrap mb-4'>Scoliosis is a sideways curve of the spine, often resembling an "S" or "C" shape. It most commonly affects children and teens, and while the cause is often unknown, early detection and management can help prevent complications. </p>
                   <div>
                     <button className='bg-sky-600 rounded-full text-white px-4 py-1 hover:bg-sky-700 transform duration-300' type='button'>Upload image</button>
                   </div>
@@ -53,7 +53,7 @@ export default function Home() {
                     className='mb-4'
                   />
                   <h3 className='text-2xl mb-4'>Read More</h3>
-                  <p className='text-wrap mb-4'> The project aids doctors in precise early detection, integrating patient data for personalized interventions. Ongoing research focuses on targeted therapies. Ongoing research explores innovative treatments.</p>
+                  <p className='text-wrap mb-4'> Early Detection is the Key : The project aids doctors in precise early detection, integrating patient data for personalized interventions. Ongoing research focuses on targeted therapies and also  explores innovative treatments.</p>
                   <div>
                     <button className='bg-sky-600 rounded-full text-white px-4 py-1 hover:bg-sky-700 transform duration-300' type='button'>Read More</button>
                   </div>
