@@ -1,6 +1,7 @@
 import Background from './components/Background'
 import Navbar from './components/Navbar'
 import Image from 'next/image'
+import Readmore from './components/Readmore'
 
 export default function Home() {
   return (
