@@ -16,7 +16,7 @@ export default function Home() {
               <div className='flex gap-8'>
                 <div className='bg-white p-6 rounded max-w-80 shadow-md'>
                   <Image 
-                    src='/images/icons8-scoliosis-50.png'
+                    src='/images/icons8-scoliosis-1.png'
                     width={40}
                     height={40}
                     alt='Scoliosis'
