@@ -6,7 +6,6 @@ import Readmore from './components/Readmore'
 export default function Home() {
   return (
     <div>
-        <Navbar />
         <div className='relative'>
           <div className='absolute p-12 z-10'>
               <h1 className='text-4xl mb-20 bg-sky-200 max-w-80 leading-tight font-bold text-wrap'>Early Detection of Scoliosis& Knee OA through ML</h1>
