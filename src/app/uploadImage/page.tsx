@@ -7,17 +7,15 @@ export default function UploadImagePage(){
                     <h1 className="mt-20 mb-12 text-2xl text-center ">Drag and Drop or Upload X-ray Image here</h1>
                 </div>
                 <div className="flex justify-center items-center">
-                    <div className="relative min-w-96 min-h-96 border-dashed border-zinc-600 border-4 rounded-md mb-8">
+                    <div className="relative w-[350px] h-[323px] border-dashed border-zinc-600 border-4 rounded-md mb-8 overflow-hidden">
                         <div className="inset-0">
-                            <Image
+                            <img
                                 src="/images/picture_7.png"
-                                layout="fill"
-                                objectFit="cover"
                                 alt="Drop Image here"
-                                className="z-10 object-contain opacity-30"
+                                className="absolute w-full h-full z-10 object-cover opacity-30"
                             />
                         </div>
-                        <div className="absolute z-20 top-72 inset-x-24">
+                        <div className="z-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                             <button className='bg-sky-600 text-white px-8 py-2 rounded-full hover:bg-sky-700 transform duration-300' type='button'>Upload X-Ray</button>
                         </div>
                     </div>    
