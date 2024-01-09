@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Navbar = () =>{
     return(
-            <nav className="sticky w-full h-24 bg-white container mx-auto border">
+            <nav id="top" className="sticky w-full h-24 bg-white container mx-auto border">
                 <div className="flex items-center px-24">
                     <Image
                     src="/images/Logo.png"
