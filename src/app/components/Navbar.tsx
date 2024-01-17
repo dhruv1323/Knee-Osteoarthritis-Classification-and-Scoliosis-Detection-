@@ -27,7 +27,7 @@ const Navbar = () =>{
                             </Link>
                         </li>
                         <li className=" hover:underline underline-offset-2 decoration-sky-300 hover:text-sky-500">
-                            <Link href="/osteoarthritis">
+                            <Link href="/pages/osteoarthritis">
                                 ReadMore
                             </Link>
                         </li>
