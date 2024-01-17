@@ -16,11 +16,26 @@ const Navbar = () =>{
                     <span className="text-4xl font-bold">Nexus</span>
                     <div className="">
                     <ul className="flex gap-12">
-                        <li className=""><Link href="/">
-                        </Link> Home</li>
-                        <li className="">Disease</li>
-                        <li className="">ReadMore</li>
-                        <li className="">Login/SignUp</li>
+                        <li className="hover:underline underline-offset-2 decoration-sky-300 hover:text-sky-500">
+                            <Link href="/">
+                                Home
+                            </Link>
+                        </li>
+                        <li className="hover:underline underline-offset-2 decoration-sky-300 hover:text-sky-500">
+                            <Link href="/">
+                                Disease
+                            </Link>
+                        </li>
+                        <li className=" hover:underline underline-offset-2 decoration-sky-300 hover:text-sky-500">
+                            <Link href="/osteoarthritis">
+                                ReadMore
+                            </Link>
+                        </li>
+                        <li className="hover:underline underline-offset-2 decoration-sky-300 hover:text-sky-500">
+                            <Link href="/">
+                                Login/SignUp
+                            </Link>
+                        </li>
                     </ul>
                     </div>
                 </div>
