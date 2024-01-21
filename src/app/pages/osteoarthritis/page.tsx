@@ -25,12 +25,12 @@ export default function Home(){
           className="mb-6"
         />
         <div className="flex justify-center items-center gap-8 p-8 ">
-            <h1 className="text-lg text-sky-500 hover:bg-sky-200">Overview</h1>
-            <h1 className="text-lg text-sky-500 hover:bg-sky-200">Symptoms</h1>
-            <h1 className="text-lg text-sky-500 hover:bg-sky-200">Causes</h1>
-            <h1 className="text-lg text-sky-500 hover:bg-sky-200">Treatment</h1>
-            <h1 className="text-lg text-sky-500 hover:bg-sky-200">Prevention</h1>
-            <h1 className="text-lg text-sky-500 hover:bg-sky-200">Complications</h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:bg-sky-200">Overview</h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:bg-sky-200">Symptoms</h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:bg-sky-200">Causes</h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:bg-sky-200">Treatment</h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:bg-sky-200">Prevention</h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:bg-sky-200">Complications</h1>
         </div>
       </div>
     )

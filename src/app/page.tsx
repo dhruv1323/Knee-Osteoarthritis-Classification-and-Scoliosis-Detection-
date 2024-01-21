@@ -10,7 +10,7 @@ export default function Home() {
           <div className='absolute p-12 z-10'>
               <h1 className='text-4xl mb-20 bg-sky-200 max-w-80 leading-tight font-bold text-wrap'>Early Detection of Scoliosis& Knee OA through ML</h1>
               <div className='mb-20'>
-                  <Link href="/pages/osteoarthritis">
+                  <Link href="/pages/osteoarthritis#top">
                       <button className='bg-sky-600 text-white px-8 py-2 rounded-full hover:bg-sky-700 transform duration-300'>
                         Read more
                       </button>
