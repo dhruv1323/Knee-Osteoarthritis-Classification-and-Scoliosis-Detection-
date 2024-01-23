@@ -4,12 +4,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const ChevronDownIcon = ({ flipped }) => {
+interface ChevronDownIconProps {
+    flipped: boolean;
+  }
+
+const ChevronDownIcon: React.FC<ChevronDownIconProps> = ({ flipped }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
-            className={`h-4 w-4 inline-block ${flipped ? 'rotate-180' : ''}`}
+            className={`h-4 w-4 inline-block ${flipped ? 'rotate-180 transition-transform duration-300 ease-in-out' : 'transition-transform duration-300 ease-in-out'}`}
         >
             <path
                 fill="currentColor"
@@ -68,22 +72,22 @@ const Navbar = () =>{
                     <span className="text-4xl font-bold">Nexus</span>
                     <div className="">
                     <ul className="flex gap-12">
-                        <li className="text-lg font-semi-bold hover:underline underline-offset-4 decoration-blue-500 hover:text-blue-500 hover:bg-sky-100">
+                        <li className="text-lg border border-hidden rounded font-semi-bold  hover:text-blue-500 hover:bg-sky-100">
                             <Link className="p-2" href="/">
                                 Home
                             </Link>
                         </li>
-                        <li className="dropdown relative text-lg font-semi-bold hover:underline underline-offset-4 decoration-blue-500 hover:text-blue-500 hover:bg-sky-100" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-                            <span className="p-2 rounded">Disease <ChevronDownIcon  flipped={isFlipped} /></span>
+                        <li className="dropdown relative text-lg font-semi-bold  hover:text-blue-500 hover:bg-sky-100" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
+                            <span className="p-2  rounded">Disease <ChevronDownIcon  flipped={isFlipped} /></span>
                             {isDropdownOpen && (
                                 <div className="absolute top-8 bg-white p-3 rounded-sm shadow-sm shadow-slate-500">
                                     <ul className="dropdown-content">
-                                        <li className="hover:underline underline-offset-4 decoration-blue-500 hover:bg-sky-100">
+                                        <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500 hover:bg-sky-100">
                                         <Link onClick={handleClick} href="/pages/uploadImage">
                                             Osteoarthritis
                                         </Link>
                                         </li>
-                                        <li className="hover:underline underline-offset-4 decoration-blue-500">
+                                        <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500">
                                         <Link className=" hover:bg-sky-100" onClick={handleClick} href="/pages/uploadImage">
                                             Scoliosis
                                         </Link>
@@ -92,17 +96,17 @@ const Navbar = () =>{
                                 </div>
                             )}
                         </li>
-                        <li className="dropdown relative text-lg font-semi-bold hover:underline underline-offset-4 decoration-blue-500 hover:text-blue-500 hover:bg-sky-100" onMouseEnter={handleMouseEnter1} onMouseLeave={handleMouseLeave1} >
+                        <li className="dropdown relative text-lg font-semi-bold hover:text-blue-500 hover:bg-sky-100" onMouseEnter={handleMouseEnter1} onMouseLeave={handleMouseLeave1} >
                             <span className="p-2 rounded">Read More <ChevronDownIcon  flipped={isFlipped1} /></span>
                             {isOpen && (
                                 <div className="absolute top-8 bg-white p-3 rounded-sm shadow-sm shadow-slate-500">
                                     <ul className="dropdown-content">
-                                        <li className="hover:underline underline-offset-4 decoration-blue-500 hover:bg-sky-100">
+                                        <li className="text-black hover:underline underline-offset-4 decoration-back-500 hover:text-blue-500 hover:bg-sky-100">
                                         <Link onClick={handleClick} href="/pages/osteoarthritis">
                                             Osteoarthritis
                                         </Link>
                                         </li>
-                                        <li className="hover:underline underline-offset-4 decoration-blue-500">
+                                        <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500">
                                         <Link className=" hover:bg-sky-100" onClick={handleClick} href="/pages/scoliosis">
                                             Scoliosis
                                         </Link>
@@ -111,9 +115,12 @@ const Navbar = () =>{
                                 </div>
                             )}
                         </li>
-                        <li className="text-lg font-semi-bold hover:underline underline-offset-4 decoration-blue-500 hover:text-blue-500 hover:bg-sky-100">
-                            <Link className="p-2" href="/">
-                                Login/SignUp
+                        <li className="text-lg font-semi-bold">
+                            <Link className=" hover:text-blue-500 hover:bg-sky-100" href="/">
+                                Login/
+                            </Link>
+                            <Link className=" hover:text-blue-500 hover:bg-sky-100" href="/">
+                                SignUp
                             </Link>
                         </li>
                     </ul>
