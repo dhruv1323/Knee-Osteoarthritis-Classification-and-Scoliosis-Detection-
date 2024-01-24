@@ -53,8 +53,6 @@ const Navbar = () =>{
       const handleClick =() =>{
         setDropdownOpen(false);
         setOpen(false);
-        setFlipped(false);
-        setFlipped1(false);
       }
     // const toggleDropdown = () => {
     //     setDropdownOpen(!isDropdownOpen);
