@@ -4,10 +4,9 @@ export default function Home(){
         <div className="relative h-screen">
             <div className="container max-w-2xl absolute p-16 ml-16 z-10">
                 <div className="bg-white p-6 min-w-96 min-h-64 shadow-lg rounded">
-                    <h1 className="font-bold text-4xl text-balance mb-5 p-3">Scoliosis Research Center</h1>
+                    <h1 className="font-bold text-4xl pl-3 pt-3">Scoliosis</h1>
+                    <h1 className="font-bold text-4xl mb-5 pl-3">Research Center</h1>
                     <h1 className="text-2xl p-3">Tools, resources, and support for living well with Scoliosis</h1>
-                    {/* <div className=" ">
-                    </div> */}
                 </div>
             </div>
         <Image
