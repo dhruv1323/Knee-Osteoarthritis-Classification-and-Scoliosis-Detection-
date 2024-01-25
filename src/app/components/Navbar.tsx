@@ -85,12 +85,22 @@ const Navbar = () =>{
                                 <div className="absolute top-8 bg-white p-3 rounded-sm shadow-sm shadow-slate-500">
                                     <ul className="dropdown-content">
                                         <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500 hover:bg-sky-100">
-                                        <Link onClick={handleClick} href="/pages/uploadImage">
+                                        <Link onClick={handleClick} 
+                                            href={{
+                                            pathname: '/pages/uploadImage',
+                                            query: { name: 'osteoarthritis' },
+                                            }}
+                                        >
                                             Osteoarthritis
                                         </Link>
                                         </li>
                                         <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500">
-                                        <Link className=" hover:bg-sky-100" onClick={handleClick} href="/pages/uploadImage">
+                                        <Link className=" hover:bg-sky-100" onClick={handleClick}  
+                                            href={{
+                                                pathname: '/pages/uploadImage',
+                                                query: { name: 'scoliosis' },
+                                            }}
+                                        >
                                             Scoliosis
                                         </Link>
                                         </li>
