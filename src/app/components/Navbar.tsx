@@ -24,45 +24,44 @@ const ChevronDownIcon: React.FC<ChevronDownIconProps> = ({ flipped }) => {
   
 
 const Navbar = () =>{
-    const [isDropdownOpen, setDropdownOpen] = useState(false);
-    const [isOpen, setOpen] = useState(false);
-    const [isFlipped, setFlipped] = useState(false);
-    const [isFlipped1, setFlipped1] = useState(false);
-
-    const handleMouseEnter = () => {
-        setDropdownOpen(true);
-        setFlipped(true);
-        
+    const [dropdownInfo, setDropdownInfo] = useState({
+        isDiseaseOpen: false,
+        isReadMoreOpen: false,
+        isDiseaseFlipped: false,
+        isReadMoreFlipped: false,
+      });
+    
+      const handleMouseEnter = (type: string) => {
+        setDropdownInfo({
+          ...dropdownInfo,
+          [`${type}Open`]: true,
+          [`${type}Flipped`]: true,
+        });
       };
     
-      const handleMouseLeave = () => {
-        setDropdownOpen(false);
-        setFlipped(false);
-      };
-
-      const handleMouseEnter1 = () => {
-        setOpen(true);
-        setFlipped1(true);
+      const handleMouseLeave = (type: string) => {
+        setDropdownInfo({
+          ...dropdownInfo,
+          [`${type}Open`]: false,
+          [`${type}Flipped`]: false,
+        });
       };
     
-      const handleMouseLeave1 = () => {
-        setOpen(false);
-        setFlipped1(false);
+      const handleClick = () => {
+        setDropdownInfo({
+          isDiseaseOpen: false,
+          isReadMoreOpen: false,
+          isDiseaseFlipped: false,
+          isReadMoreFlipped: false,
+        });
       };
-      
-      const handleClick =() =>{
-        setDropdownOpen(false);
-        setOpen(false);
-        setFlipped(false);
-        setFlipped1(false);
-      }
     // const toggleDropdown = () => {
     //     setDropdownOpen(!isDropdownOpen);
     // };
 
     return(
             <nav id="top" className="sticky w-full h-24 bg-white container mx-auto border z-20">
-                <div className="flex items-center px-24">
+                <div className="flex items-center px-12">
                     <Image
                     src="/images/Logo.png"
                     alt="logo"
@@ -74,14 +73,16 @@ const Navbar = () =>{
                     <span className="text-4xl font-bold">Nexus</span>
                     <div className="">
                     <ul className="flex gap-12">
-                        <li className="text-lg border border-hidden rounded font-semi-bold  hover:text-blue-500 hover:bg-sky-100">
+                        <li className="text-lg border border-hidden  hover:underline underline-offset-4 decoration-black-500  font-semi-bold deco  hover:text-blue-500">
                             <Link className="p-2" href="/">
                                 Home
                             </Link>
                         </li>
-                        <li className="dropdown relative text-lg font-semi-bold  hover:text-blue-500 hover:bg-sky-100" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-                            <span className="p-2  rounded">Disease <ChevronDownIcon  flipped={isFlipped} /></span>
-                            {isDropdownOpen && (
+                        <li className="dropdown relative text-lg font-semi-bold  hover:text-blue-500 hover:bg-sky-100" 
+                            onMouseEnter={() => handleMouseEnter('isDisease')}
+                            onMouseLeave={() => handleMouseLeave('isDisease')} >
+                            <span className="p-2  rounded">Disease <ChevronDownIcon  flipped={dropdownInfo.isDiseaseFlipped} /></span>
+                            {dropdownInfo.isDiseaseOpen && (
                                 <div className="absolute top-8 bg-white p-3 rounded-sm shadow-sm shadow-slate-500">
                                     <ul className="dropdown-content">
                                         <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500 hover:bg-sky-100">
@@ -108,9 +109,12 @@ const Navbar = () =>{
                                 </div>
                             )}
                         </li>
-                        <li className="dropdown relative text-lg font-semi-bold hover:text-blue-500 hover:bg-sky-100" onMouseEnter={handleMouseEnter1} onMouseLeave={handleMouseLeave1} >
-                            <span className="p-2 rounded">Read More <ChevronDownIcon  flipped={isFlipped1} /></span>
-                            {isOpen && (
+                        <li className="dropdown relative text-lg font-semi-bold hover:text-blue-500 hover:bg-sky-100" 
+                            onMouseEnter={() => handleMouseEnter('isReadMore')}
+                            onMouseLeave={() => handleMouseLeave('isReadMore')}
+                            >
+                            <span className="p-2 rounded">Read More <ChevronDownIcon  flipped={dropdownInfo.isReadMoreFlipped} /></span>
+                            {dropdownInfo.isReadMoreOpen && (
                                 <div className="absolute top-8 bg-white p-3 rounded-sm shadow-sm shadow-slate-500">
                                     <ul className="dropdown-content">
                                         <li className="text-black hover:underline underline-offset-4 decoration-back-500 hover:text-blue-500 hover:bg-sky-100">
