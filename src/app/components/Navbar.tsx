@@ -131,14 +131,14 @@ const Navbar = () =>{
                                 </div>
                             )}
                         </li>
-                        <li className="text-lg font-semi-bold">
-                            <Link className=" hover:text-blue-500 hover:bg-sky-100" href="/">
+                        <button className="text-lg font-semi-bold">
+                            <Link className=" hover:text-blue-500 hover:bg-sky-100" href="/pages/login">
                                 Login/
                             </Link>
                             <Link className=" hover:text-blue-500 hover:bg-sky-100" href="/">
                                 SignUp
                             </Link>
-                        </li>
+                        </button>
                     </ul>
                     </div>
                 </div>
