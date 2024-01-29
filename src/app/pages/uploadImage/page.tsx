@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect} from "react";
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import Image from "next/image";
 
 export default function UploadImagePage(){
 
@@ -87,7 +88,7 @@ export default function UploadImagePage(){
                         />
                         <div className="relative w-[350px] h-[323px] border-dashed border-slate-300 border-2 rounded-md mb-8 overflow-hidden">
                             <div className="inset-0">
-                                <img
+                                <Image
                                     src="/images/picture_7.png"
                                     alt="Drop Image here"
                                     className={`absolute w-full h-full z-10 object-cover ${dragActive ? "opacity-40" : "opacity-20"}`}

@@ -26,7 +26,7 @@ export default function Home() {
                     className='mb-4'
                   />
                   <h3 className='text-2xl mb-4'>Scoliosis</h3>
-                  <p className='text-wrap mb-4'>Scoliosis is a sideways curve of the spine, often resembling an "S" or "C" shape. It most commonly affects children and teens, and while the cause is often unknown, early detection and management can help prevent complications. </p>
+                  <p className='text-wrap mb-4'>Scoliosis is a sideways curve of the spine, often resembling an &quot;S&quot; or &quot;C&quot; shape. It most commonly affects children and teens, and while the cause is often unknown, early detection and management can help prevent complications. </p>
                   <div>
                     <Link
                       href={{
