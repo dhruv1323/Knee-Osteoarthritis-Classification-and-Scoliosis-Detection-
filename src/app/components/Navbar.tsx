@@ -73,19 +73,29 @@ const Navbar = () =>{
                     <span className="text-4xl font-bold">Nexus</span>
                     <div className="">
                     <ul className="flex gap-12">
-                        <li className="text-lg border border-hidden  hover:underline underline-offset-4 decoration-black-500  font-semi-bold deco  hover:text-blue-500">
-                            <Link className="p-2" href="/">
+                        <li className="text-lg border border-hidden rounded-xl  font-semi-bold hover:bg-sky-500 hover:text-white">
+                            <Link className="p-2 pt-4 pb-4 " href="/">
                                 Home
                             </Link>
                         </li>
-                        <li className="dropdown relative text-lg font-semi-bold  hover:text-blue-500 hover:bg-sky-100" 
+                        <li className="dropdown relative text-lg border border-hidden rounded-xl font-semi-bold hover:bg-sky-500 hover:text-white" 
                             onMouseEnter={() => handleMouseEnter('isDisease')}
                             onMouseLeave={() => handleMouseLeave('isDisease')} >
                             <span className="p-2  rounded">Disease <ChevronDownIcon  flipped={dropdownInfo.isDiseaseFlipped} /></span>
                             {dropdownInfo.isDiseaseOpen && (
                                 <div className="absolute top-8 bg-white p-3 rounded-sm shadow-sm shadow-slate-500">
                                     <ul className="dropdown-content">
-                                        <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500 hover:bg-sky-100">
+                                        <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500">
+                                        <Link className="" onClick={handleClick}  
+                                            href={{
+                                                pathname: '/pages/uploadImage',
+                                                query: { name: 'scoliosis' },
+                                            }}
+                                        >
+                                            Scoliosis
+                                        </Link>
+                                        </li>
+                                        <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500">
                                         <Link onClick={handleClick} 
                                             href={{
                                             pathname: '/pages/uploadImage',
@@ -95,21 +105,11 @@ const Navbar = () =>{
                                             Osteoarthritis
                                         </Link>
                                         </li>
-                                        <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500">
-                                        <Link className=" hover:bg-sky-100" onClick={handleClick}  
-                                            href={{
-                                                pathname: '/pages/uploadImage',
-                                                query: { name: 'scoliosis' },
-                                            }}
-                                        >
-                                            Scoliosis
-                                        </Link>
-                                        </li>
                                     </ul>
                                 </div>
                             )}
                         </li>
-                        <li className="dropdown relative text-lg font-semi-bold hover:text-blue-500 hover:bg-sky-100" 
+                        <li className="dropdown relative text-lg border border-hidden rounded-xl font-semi-bold hover:bg-sky-500 hover:text-white" 
                             onMouseEnter={() => handleMouseEnter('isReadMore')}
                             onMouseLeave={() => handleMouseLeave('isReadMore')}
                             >
@@ -117,28 +117,28 @@ const Navbar = () =>{
                             {dropdownInfo.isReadMoreOpen && (
                                 <div className="absolute top-8 bg-white p-3 rounded-sm shadow-sm shadow-slate-500">
                                     <ul className="dropdown-content">
-                                        <li className="text-black hover:underline underline-offset-4 decoration-back-500 hover:text-blue-500 hover:bg-sky-100">
-                                        <Link onClick={handleClick} href="/pages/osteoarthritis">
-                                            Osteoarthritis
+                                        <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500">
+                                        <Link className="" onClick={handleClick} href="/pages/scoliosis">
+                                            Scoliosis
                                         </Link>
                                         </li>
-                                        <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500">
-                                        <Link className=" hover:bg-sky-100" onClick={handleClick} href="/pages/scoliosis">
-                                            Scoliosis
+                                        <li className="text-black hover:underline underline-offset-4 decoration-back-500 hover:text-blue-500">
+                                        <Link onClick={handleClick} href="/pages/osteoarthritis">
+                                            Osteoarthritis
                                         </Link>
                                         </li>
                                     </ul>
                                 </div>
                             )}
                         </li>
-                        <button className="text-lg font-semi-bold">
-                            <Link className=" hover:text-blue-500 hover:bg-sky-100" href="/pages/login">
-                                Login/
+                        <li className="text-lg text-white font-semi-bold bg-sky-500 rounded-xl hover:text-white">
+                            <Link className="p-4 pt-4 " href="/pages/login">
+                                Login
                             </Link>
-                            <Link className=" hover:text-blue-500 hover:bg-sky-100" href="/">
+                            {/* <Link className=" hover:text-blue-500 hover:bg-sky-100" href="/">
                                 SignUp
-                            </Link>
-                        </button>
+                            </Link> */}
+                        </li>
                     </ul>
                     </div>
                 </div>

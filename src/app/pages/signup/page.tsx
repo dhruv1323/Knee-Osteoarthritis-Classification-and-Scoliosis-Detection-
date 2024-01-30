@@ -39,18 +39,7 @@ export default function SignUp() {
                         required
                     />
                 </div>
-                <div className="mb-4">
-                    <input
-                        type="text"
-                        // value={phone}
-                        // onChange={(e) => setPhone(e.target.value)}
-                        className="border-none border-b-2 border-black"
-                        id="exampleInputEmail1"
-                        placeholder="Enter Your Phone"
-                        required
-                    />
-                </div>
-                <div className="mb-4">
+                {/* <div className="mb-4">
                     <input
                         type="text"
                         // value={address}
@@ -60,7 +49,7 @@ export default function SignUp() {
                         placeholder="Enter Your Address"
                         required
                     />
-                </div>
+                </div> */}
                 <div className="mb-4">
                     <input
                         type="text"

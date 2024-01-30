@@ -90,6 +90,7 @@ export default function UploadImagePage(){
                             <div className="inset-0">
                                 <Image
                                     src="/images/picture_7.png"
+                                    fill
                                     alt="Drop Image here"
                                     className={`absolute w-full h-full z-10 object-cover ${dragActive ? "opacity-40" : "opacity-20"}`}
                                 />

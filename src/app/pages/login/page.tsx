@@ -4,8 +4,18 @@ export default function Login() {
     return (
         <div className="form-container min-h-screen">
             <div className="flex justify-center items-center mt-10 p-10 ">
-                <form className="box-shadow p-8 bg-sky-200 rounded">
+                <form className="box-shadow p-8 bg-gray-100 rounded">
                     <h1 className="title text-center mb-4 font-bold font-serif">LOGIN FORM</h1>
+                    <div className="mb-4">
+                        <button
+                            type="button"
+                            className="border p-2 bg-sky-200 hover:text-black hover:font-bold hover:border-black"
+                            // onClick={() => { navigate("/forgot-password"); }}
+                        >
+                             Sign In with Google
+                        </button>
+                    </div>
+                    <h1 className='mb-4 '>OR</h1>
                     <div className="mb-4">
                         <input
                             type="email"
@@ -35,7 +45,7 @@ export default function Login() {
                         </button>
                     </div>
 
-                    <button type="submit" className="border border-black bg-black text-white w-64">
+                    <button type="submit" className="border border-black bg-blue-500 text-white w-64">
                         LOGIN
                     </button>
                 </form>
