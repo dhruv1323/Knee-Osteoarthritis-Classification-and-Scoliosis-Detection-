@@ -92,14 +92,14 @@ const Navbar = () => {
             />}   
         </span>
       </div>
-      <ul className={`flex flex-col justify-between gap-6 bg-white w-full left-0 z-[-1] absolute md:z-auto md:static md:flex md:w-auto md:flex-row md:items-center md:justify-between md:py-0 py-4 md:pl-0 pl-7 md:gap-12 md:opacity-100 transition-all ease-in duration-500 ${open ? 'top-20 opacity-100':'top-[-400px] opacity-0'}`}>
-        <li className="text-lg border border-hidden rounded-xl  font-semi-bold hover:bg-sky-500 hover:text-white">
+      <ul className={`flex flex-col justify-between items-center gap-6 bg-white w-full left-0 z-[-1] absolute md:z-auto md:static md:flex md:w-auto md:flex-row md:items-center md:justify-between md:py-0 py-4 md:pl-0 pl-7 md:gap-12 md:opacity-100 transition-all ease-in duration-500 ${open ? 'top-20 opacity-100':'top-[-400px] opacity-0'}`}>
+        <li className="text-lg border border-hidden rounded-xl w-20 md:w-auto font-semi-bold hover:bg-sky-500 hover:text-white">
           <Link onClick={handleClick} className="p-2 pt-4 pb-4 " href="/">
             Home
           </Link>
         </li>
         <li
-          className="dropdown relative text-lg border border-hidden rounded-xl font-semi-bold hover:bg-sky-500 hover:text-white"
+          className="dropdown relative text-lg border border-hidden rounded-xl w-28 font-semi-bold hover:bg-sky-500 hover:text-white"
           onMouseEnter={() => handleMouseEnter("isDisease")}
           onMouseLeave={() => handleMouseLeave("isDisease")}
         >
@@ -137,7 +137,7 @@ const Navbar = () => {
           )}
         </li>
         <li
-          className="dropdown relative text-lg border border-hidden rounded-xl font-semi-bold hover:bg-sky-500 hover:text-white"
+          className="dropdown relative text-lg border border-hidden rounded-xl w-36 md:w-auto font-semi-bold hover:bg-sky-500 hover:text-white"
           onMouseEnter={() => handleMouseEnter("isReadMore")}
           onMouseLeave={() => handleMouseLeave("isReadMore")}
         >
@@ -166,7 +166,7 @@ const Navbar = () => {
             </div>
           )}
         </li>
-        <li className="text-lg px-4 py-1 md:px-4 md:py-1 rounded-3xl text-white font-semi-bold bg-sky-500 hover:bg-sky-600">
+        <li className="text-lg px-4 py-1 md:px- md:py-1 rounded-3xl w-28 md:w-auto text-white font-semi-bold bg-sky-500 hover:bg-sky-600">
           <Link onClick={handleClick} className="" href="/pages/login">
             Login
           </Link>

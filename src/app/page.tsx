@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <div>
         <div className='relative'>
-          <div className='absolute p-12 z-10'>
-              <h1 className='text-4xl mb-20 rounded bg-sky-200 max-w-80 leading-tight font-bold text-wrap'>Early Detection of Scoliosis& Knee OA through ML</h1>
+          <div className='absolute p-6 md:p-12 z-10'>
+              <h1 className='text-4xl mt-4 md:mt-0 mb-20 rounded bg-sky-200 max-w-80 leading-tight font-bold text-wrap'>Early Detection of Scoliosis& Knee OA through ML</h1>
               <div className='mb-20'>
                   <Link href="/pages/osteoarthritis#top">
                       <button className='bg-sky-600 text-white px-8 py-2 rounded-full hover:bg-sky-700 transform duration-300'>
@@ -16,7 +16,7 @@ export default function Home() {
                       </button>
                   </Link>
               </div>
-              <div className='flex gap-8'>
+              <div className='flex flex-col md:flex md:flex-row gap-8'>
                 <div className='bg-white p-6 rounded max-w-80 shadow-md'>
                   <Image 
                     src='/images/icons8-scoliosis-1.png'
