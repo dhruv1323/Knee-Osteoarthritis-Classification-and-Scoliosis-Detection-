@@ -67,7 +67,8 @@ export default function UploadImagePage(){
     return(
             <div className="flex flex-col justify-center">
                 <div>
-                    <h1 className="mt-20 mb-12 text-2xl text-center ">Drag and Drop or Upload X-ray Image here</h1>
+                    <h1 className="md:mt-20 md:mb-12 md:text-2xl hidden md:text-center ">Drag and Drop or Upload X-ray Image here</h1>
+                    <h1 className="mt-20 mb-12 text-2xl text-center md:hidden ">Upload X-ray Image here</h1>
                 </div>
                 <div className="flex justify-center items-center">
                     <div
@@ -86,7 +87,7 @@ export default function UploadImagePage(){
                             onChange={handleChange}
                             accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf"
                         />
-                        <div className="relative w-[350px] h-[323px] border-dashed border-slate-300 border-2 rounded-md mb-8 overflow-hidden">
+                        <div className="relative  w-[350px] h-[323px] border-dashed border-slate-300 border-2 rounded-md mb-8 overflow-hidden">
                             <div className="inset-0">
                                 <Image
                                     src="/images/picture_7.png"
@@ -108,9 +109,9 @@ export default function UploadImagePage(){
                         <div>
                             <button className={`bg-stone-50 rounded-md border-dashed border-slate-400 border-2 text-black px-4 py-1 hover:text-sky-700 hover:border-sky-700 hover:bg-slate-100 transform duration-300 ${(name==="osteoarthritis")?"text-sky-700 border-sky-700 bg-slate-100":" border-slate-400 border-2 text-black px-4"}`} type='button'>Osteoarthritis</button>
                         </div>
-                        <div>
+                        {/* <div>
                             <button className='bg-stone-50 rounded-md border-dashed border-slate-400 border-2 text-black px-4 py-1 hover:text-sky-700 hover:border-sky-700 hover:bg-slate-100 transform duration-300' type='button'>Open ended</button>
-                        </div>
+                        </div> */}
                     </div>
 
             </div>
