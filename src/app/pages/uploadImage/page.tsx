@@ -67,7 +67,7 @@ export default function UploadImagePage(){
     return(
             <div className="flex flex-col justify-center">
                 <div>
-                    <h1 className="md:mt-20 md:mb-12 md:text-2xl hidden md:text-center ">Drag and Drop or Upload X-ray Image here</h1>
+                    <h1 className="md:mt-20 md:mb-12 md:text-2xl hidden md:block  md:text-center ">Drag and Drop or Upload X-ray Image here</h1>
                     <h1 className="mt-20 mb-12 text-2xl text-center md:hidden ">Upload X-ray Image here</h1>
                 </div>
                 <div className="flex justify-center items-center">
