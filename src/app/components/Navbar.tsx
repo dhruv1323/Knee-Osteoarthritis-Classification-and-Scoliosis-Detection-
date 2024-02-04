@@ -109,7 +109,7 @@ const Navbar = () => {
           {dropdownInfo.isDiseaseOpen && (
             <div className="absolute top-8 bg-white p-3 z-10 rounded-sm shadow-sm shadow-slate-500">
               <ul className="dropdown-content">
-                <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500">
+                <li className="text-black hover:text-blue-500">
                   <Link
                     className=""
                     onClick={handleClick}
@@ -121,7 +121,7 @@ const Navbar = () => {
                     Scoliosis
                   </Link>
                 </li>
-                <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500">
+                <li className="text-black hover:text-blue-500">
                   <Link
                     onClick={handleClick}
                     href={{
@@ -148,7 +148,7 @@ const Navbar = () => {
           {dropdownInfo.isReadMoreOpen && (
             <div className="absolute top-8 bg-white p-3 rounded-sm shadow-sm shadow-slate-500">
               <ul className="dropdown-content">
-                <li className="text-black hover:underline underline-offset-4 decoration-black-500 hover:text-blue-500">
+                <li className="text-black hover:text-blue-500">
                   <Link
                     className=""
                     onClick={handleClick}
@@ -157,7 +157,7 @@ const Navbar = () => {
                     Scoliosis
                   </Link>
                 </li>
-                <li className="text-black hover:underline underline-offset-4 decoration-back-500 hover:text-blue-500">
+                <li className="text-black hover:text-blue-500">
                   <Link onClick={handleClick} href="/pages/osteoarthritis">
                     Osteoarthritis
                   </Link>
