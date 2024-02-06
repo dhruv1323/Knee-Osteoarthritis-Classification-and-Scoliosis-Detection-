@@ -93,13 +93,13 @@ const Navbar = () => {
         </span>
       </div>
       <ul className={`flex flex-col justify-between items-center gap-6 bg-white w-full left-0 z-[-1] absolute md:z-auto md:static md:flex md:w-auto md:flex-row md:items-center md:justify-between md:py-0 py-4 md:pl-0 pl-7 md:gap-12 md:opacity-100 transition-all ease-in duration-500 ${open ? 'top-20 opacity-100':'top-[-400px] opacity-0'}`}>
-        <li className="text-lg border border-hidden rounded-xl w-20 md:w-auto font-semi-bold hover:bg-sky-500 hover:text-white">
+        <li className="text-lg border border-hidden rounded-xl w-20 md:w-auto font-semi-bold hover:text-sky-500 transition duration-300">
           <Link onClick={handleClick} className="p-2 pt-4 pb-4 " href="/">
             Home
           </Link>
         </li>
         <li
-          className="dropdown relative text-lg border border-hidden rounded-xl w-28 font-semi-bold hover:bg-sky-500 hover:text-white"
+          className="dropdown relative text-lg border border-hidden rounded-xl w-28 font-semi-bold hover:text-sky-500 transition duration-300"
           onMouseEnter={() => handleMouseEnter("isDisease")}
           onMouseLeave={() => handleMouseLeave("isDisease")}
         >
@@ -107,9 +107,9 @@ const Navbar = () => {
             Disease <ChevronDownIcon flipped={dropdownInfo.isDiseaseFlipped} />
           </span>
           {dropdownInfo.isDiseaseOpen && (
-            <div className="absolute top-8 bg-white p-3 z-10 rounded-sm shadow-sm shadow-slate-500">
+            <div className="absolute top-8 bg-white p-1 z-10 rounded shadow-md shadow-slate-200">
               <ul className="dropdown-content">
-                <li className="text-black hover:text-blue-500">
+                <li className="text-black text-base px-2 py-1 rounded hover:bg-sky-100">
                   <Link
                     className=""
                     onClick={handleClick}
@@ -121,7 +121,7 @@ const Navbar = () => {
                     Scoliosis
                   </Link>
                 </li>
-                <li className="text-black hover:text-blue-500">
+                <li className="text-black text-base px-2 py-1 rounded hover:bg-sky-100">
                   <Link
                     onClick={handleClick}
                     href={{
@@ -137,7 +137,7 @@ const Navbar = () => {
           )}
         </li>
         <li
-          className="dropdown relative text-lg border border-hidden rounded-xl w-36 md:w-auto font-semi-bold hover:bg-sky-500 hover:text-white"
+          className="dropdown relative text-lg border border-hidden rounded-xl w-36 md:w-auto font-semi-bold hover:text-sky-500 transition duration-300"
           onMouseEnter={() => handleMouseEnter("isReadMore")}
           onMouseLeave={() => handleMouseLeave("isReadMore")}
         >
@@ -146,9 +146,9 @@ const Navbar = () => {
             <ChevronDownIcon flipped={dropdownInfo.isReadMoreFlipped} />
           </span>
           {dropdownInfo.isReadMoreOpen && (
-            <div className="absolute top-8 bg-white p-3 rounded-sm shadow-sm shadow-slate-500">
+            <div className="absolute top-8 bg-white rounded p-1 shadow-md shadow-slate-200">
               <ul className="dropdown-content">
-                <li className="text-black hover:text-blue-500">
+                <li className="text-black text-base px-2 py-1 rounded hover:bg-sky-100">
                   <Link
                     className=""
                     onClick={handleClick}
@@ -157,7 +157,7 @@ const Navbar = () => {
                     Scoliosis
                   </Link>
                 </li>
-                <li className="text-black hover:text-blue-500">
+                <li className="text-black text-base px-2 py-1 rounded hover:bg-sky-100">
                   <Link onClick={handleClick} href="/pages/osteoarthritis">
                     Osteoarthritis
                   </Link>
