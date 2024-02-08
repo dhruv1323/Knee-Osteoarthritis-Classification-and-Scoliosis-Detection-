@@ -26,7 +26,7 @@ export default function Home(){
                 className="mb-6 min-h-52"
               />
             </div>
-            <div className="flex flex-col mt-8 md:flex md:flex-row justify-center items-center gap-2 md:gap-8 md:p-8 ">
+            <div className="flex flex-col mt-4 md:flex md:flex-row justify-center items-center gap-2 md:gap-8 md:p-8 ">
             <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Overview</h1>
             <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Symptoms</h1>
             <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Causes</h1>

@@ -94,12 +94,12 @@ const Navbar = () => {
         </span>
       </div>
       <ul className={`flex flex-col justify-between items-center gap-6 bg-white w-full left-0 z-[-1] absolute md:z-auto md:static md:flex md:w-auto md:flex-row md:items-center md:justify-between md:py-0 py-4 md:pl-0  md:gap-12 md:opacity-100 transition-all ease-in duration-500 ${open ? 'top-20 opacity-100':'top-[-400px] opacity-0'}`}>
-        <li className="text-lg border border-hidden rounded-xl w-20 md:w-auto font-semi-bold hover:text-sky-500 transition duration-300">
+        <li className="text-base border border-hidden rounded-xl w-20 md:w-auto font-semi-bold hover:text-sky-500 transition duration-300">
           <Link onClick={handleClick} className=" " href="/">
             Home
           </Link>
         </li>
-        <li className="text-lg border border-hidden rounded-xl w-28  md:w-auto  font-semi-bold hover:text-sky-500 transition duration-300">
+        <li className="text-base border border-hidden rounded-xl w-28  md:w-auto  font-semi-bold hover:text-sky-500 transition duration-300">
             <DropdownMenu>
               <DropdownMenuTrigger>Disease <ChevronDownIcon/></DropdownMenuTrigger>
               <DropdownMenuContent>
@@ -128,7 +128,7 @@ const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
         </li>
-        <li className="text-lg border border-hidden rounded-xl w-32  md:w-auto  font-semi-bold hover:text-sky-500 transition duration-300">
+        <li className="text-base border border-hidden rounded-xl w-32  md:w-auto  font-semi-bold hover:text-sky-500 transition duration-300">
             <DropdownMenu>
               <DropdownMenuTrigger>Read More <ChevronDownIcon/></DropdownMenuTrigger>
               <DropdownMenuContent>
@@ -155,7 +155,7 @@ const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
         </li>
-        <li className="text-lg mr-6 md:mr-0 px-4 py-1 md:px-4 md:py-1 rounded-3xl w-20 md:w-auto text-white font-semi-bold bg-sky-500 hover:bg-sky-600">
+        <li className="text-base mr-6 md:mr-0 px-4 py-1 md:px-4 md:py-1 rounded-3xl w-20 md:w-auto text-white font-semi-bold bg-sky-500 hover:bg-sky-600">
           <Link onClick={handleClick} className="" href="/pages/login">
             Login
           </Link>
