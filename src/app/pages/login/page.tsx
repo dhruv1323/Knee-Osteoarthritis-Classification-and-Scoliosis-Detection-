@@ -1,5 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+import { FormEvent } from 'react'
+import { useRouter } from 'next/router'
+import { error } from 'console';
 
 const Twitterx = () => {
     return (
@@ -40,10 +43,33 @@ const Google = () => {
   
 
 export default function Login() {
+    const router = useRouter()
+    
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        const formdata = new FormData(event.currentTarget);
+        const email = formdata.get('email');
+        const password = formdata.get('password');
+
+        const response = await fetch('api/route',{
+            method: 'POST',
+            headers : {'content-type' : 'application/json'},
+            body: JSON.stringify({ email, password }),
+        })
+        
+        if(response.ok){
+            router.push('/pages/uploadImage');
+        }
+        else{
+            console.log('error');
+        }
+    }
+
+
     return (
         <div className="form-container ">
             <div className="flex justify-center items-center mt-10 p-10 max-w-auto ">
-                <form className="flex flex-col items-center justify-center box-shadow p-6 border min-w-80 border-slate-300 shadow-md rounded-xl">
+                <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center box-shadow p-6 border min-w-80 border-slate-300 shadow-md rounded-xl">
                     <h1 className="mt-0 text-center mb-1 font-semibold text-blue-500 text-xl">Login</h1>
                     <h1 className='text-xs mb-4 '>Don&apos;t have an account ? <Link className='hover:underline underline-offset-2 decoration-black ' href="/pages/signup">SignUp</Link></h1>
                     <div className=" mb-4">
