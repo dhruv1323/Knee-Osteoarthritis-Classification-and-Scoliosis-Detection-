@@ -1,8 +1,10 @@
+"use client"
 import React from 'react';
 import Link from 'next/link';
 import { FormEvent } from 'react'
-import { useRouter } from 'next/router'
-import { error } from 'console';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+
 
 const Twitterx = () => {
     return (
@@ -45,24 +47,23 @@ const Google = () => {
 export default function Login() {
     const router = useRouter()
     
-    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault();
-        const formdata = new FormData(event.currentTarget);
-        const email = formdata.get('email');
-        const password = formdata.get('password');
+    async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        // const email = formData.get('email');
+        // const password = formData.get('password');
 
-        const response = await fetch('api/route',{
-            method: 'POST',
-            headers : {'content-type' : 'application/json'},
-            body: JSON.stringify({ email, password }),
-        })
-        
-        if(response.ok){
-            router.push('/pages/uploadImage');
-        }
-        else{
-            console.log('error');
-        }
+        const response = await signIn('credentials', {
+            email: formData.get('email'),
+            password: formData.get('password'),
+            redirect: false,
+          });
+      
+          console.log({ response });
+          if (!response?.error) {
+            router.push('/');
+            router.refresh();
+          }
     }
 
 
@@ -76,21 +77,23 @@ export default function Login() {
                         <h1 className='text-slate-500 text-xs py-1'>Email</h1>
                         <input
                             type="email"
+                            name='email'
                             autoFocus
                             className="border border-slate-500 h-10 w-72 rounded"
-                            id="exampleInputEmail1"
+                            // id="exampleInputEmail1"
                             // placeholder=" Enter Your Email"
-                            required
+                            // required
                         />
                     </div>
                     <div className="mb-4">
                         <h1 className='text-slate-500 text-xs py-1'>Password</h1>
                         <input
                             type="password"
+                            name='password'
                             className="border border-slate-500 px-0 h-10 w-72 rounded"
-                            id="exampleInputPassword1"
+                            // id="exampleInputPassword1"
                             // placeholder=" Enter Your Password"
-                            required
+                            // required
                         />
                     </div>
                     {/* <div className="mb-4">
