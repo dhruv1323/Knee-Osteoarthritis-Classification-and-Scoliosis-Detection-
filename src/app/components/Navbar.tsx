@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import Image from "next/image";
 import Link from "next/link";
@@ -7,10 +7,13 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { signOut } from "next-auth/react";
+// import { getServerSession } from "next-auth";
+import { useSession } from "next-auth/react";
+
+
 
 
 const ChevronDownIcon = () => {
@@ -62,9 +65,22 @@ const Navbar = () => {
     });
     setOpen(!open);
   };
-  // const toggleDropdown = () => {
-  //     setDropdownOpen(!isDropdownOpen);
-  // };
+  // const [session, setSession] = useState(null);
+
+  // useEffect(() => {
+  //   const fetchSession = async () => {
+  //     try {
+  //       const serverSession = await getServerSession();
+  //       console.log(serverSession);
+  //       setSession(serverSession);
+  //     } catch (error) {
+  //       console.error('Error fetching session:', error);
+  //     }
+  //   };
+
+  //   fetchSession();
+  // }, []);
+  const {data:session} = useSession();
 
   return (
     <nav id="top" className="sticky w-full h-20 md:h-24 mx-auto md:px-12 md:flex md:justify-between md:items-center bg-white  border z-20 ">
@@ -155,11 +171,19 @@ const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
         </li>
-        <li className="text-base mr-6 md:mr-0 px-4 py-1 md:px-4 md:py-1 rounded-3xl w-20 md:w-auto text-white font-semi-bold bg-sky-500 hover:bg-sky-600">
-          <Link onClick={handleClick} className="" href="/pages/login">
-            Login
-          </Link>
-        </li>
+        {session ? (
+          <li className="text-base mr-6 md:mr-0 px-4 py-1 md:px-4 md:py-1 rounded-3xl w-20 md:w-auto text-white font-semi-bold bg-sky-500 hover:bg-sky-600">
+            <Link onClick={() => signOut()} className="" href="/">
+              Logout
+            </Link>
+          </li>
+        ) : (
+          <li className="text-base mr-6 md:mr-0 px-4 py-1 md:px-4 md:py-1 rounded-3xl w-20 md:w-auto text-white font-semi-bold bg-sky-500 hover:bg-sky-600">
+            <Link onClick={handleClick} className="" href="/pages/login">
+              Login
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

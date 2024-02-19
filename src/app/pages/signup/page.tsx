@@ -2,7 +2,8 @@
 
 import React, { FormEvent } from 'react';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 export default function SignUp() {
 
@@ -32,7 +33,10 @@ export default function SignUp() {
               console.error('Error during registration:', error);
             }
     };
-
+    const {data:session} = useSession();
+    if(session){
+      router.push('/');
+    }
 
     return (
         <div className="form-container flex justify-center mt-10 p-10 max-w-auto">

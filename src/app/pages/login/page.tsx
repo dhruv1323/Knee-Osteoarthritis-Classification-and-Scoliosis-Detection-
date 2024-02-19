@@ -3,12 +3,14 @@ import React from 'react';
 import Link from 'next/link';
 import { FormEvent } from 'react'
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 
 const Twitterx = () => {
     return (
         <svg 
+            onClick={()=> signIn('twitter')}
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 32 32" width="26px" height="26px">
@@ -20,6 +22,7 @@ const Twitterx = () => {
 const Facebook = () => {
     return(
         <svg 
+            onClick={()=> signIn('facebook')}
             className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  '
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 48 48" width="34px" height="34px">
@@ -32,6 +35,7 @@ const Facebook = () => {
 const Google = () => {
     return (
         <svg 
+            onClick={()=> signIn('google')}
             className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
             xmlns="http://www.w3.org/2000/svg"  
             viewBox="0 0 48 48" width="30px" height="30px">
@@ -65,7 +69,10 @@ export default function Login() {
             router.refresh();
           }
     }
-
+    const {data:session} = useSession();
+    if(session){
+        router.push('/');
+    }
 
     return (
         <div className="form-container ">
