@@ -14,6 +14,7 @@ const handler = NextAuth({
   pages: {
     signIn: '/pages/login',
   },
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
 
     GoogleProvider({

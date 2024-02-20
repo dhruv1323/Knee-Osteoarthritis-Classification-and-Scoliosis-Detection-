@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function UploadImagePage(){
 
-    const router = useRouter();
+    // const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const name = searchParams.get('name')
@@ -88,10 +88,11 @@ export default function UploadImagePage(){
                             accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf"
                         />
                         <div className="relative  w-[350px] h-[323px] border-dashed border-slate-300 border-2 rounded-md mb-8 overflow-hidden">
-                            <div className="inset-0">
+                            <div className="absolute inset-0">
                                 <Image
                                     src="/images/picture_7.png"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     alt="Drop Image here"
                                     className={`absolute w-full h-full z-10 object-cover ${dragActive ? "opacity-40" : "opacity-20"}`}
                                 />
@@ -104,10 +105,10 @@ export default function UploadImagePage(){
                 </div>
                 <div className="flex justify-center gap-8">
                         <div>
-                            <button className={`bg-stone-50 rounded-md border-dashed border-slate-400 border-2 text-black px-4 py-1 hover:text-sky-700 hover:border-sky-700 hover:bg-slate-100 transform duration-300 ${(name==="scoliosis")?"text-sky-700 border-sky-700 bg-slate-100":" border-slate-400 border-2 text-black px-4"}`} type='button'>Scoliosis</button>
+                            <button className={`bg-stone-50 rounded-md border-dashed border-slate-400 border-2 text-black px-4 py-1 hover:text-sky-700 hover:border-sky-700 hover:bg-slate-100 transform duration-300 ${(name==="scoliosis")?"text-sky-700 border-sky-700 bg-sky-100":" border-slate-400 border-2 text-black px-4"}`} type='button'>Scoliosis</button>
                         </div>
                         <div>
-                            <button className={`bg-stone-50 rounded-md border-dashed border-slate-400 border-2 text-black px-4 py-1 hover:text-sky-700 hover:border-sky-700 hover:bg-slate-100 transform duration-300 ${(name==="osteoarthritis")?"text-sky-700 border-sky-700 bg-slate-100":" border-slate-400 border-2 text-black px-4"}`} type='button'>Osteoarthritis</button>
+                            <button className={`bg-stone-50 rounded-md border-dashed border-slate-400 border-2 text-black px-4 py-1 hover:text-sky-700 hover:border-sky-700 hover:bg-slate-100 transform duration-300 ${(name==="osteoarthritis")?"text-sky-700 border-sky-700 bg-sky-100":" border-slate-400 border-2 text-black px-4"}`} type='button'>Osteoarthritis</button>
                         </div>
                         {/* <div>
                             <button className='bg-stone-50 rounded-md border-dashed border-slate-400 border-2 text-black px-4 py-1 hover:text-sky-700 hover:border-sky-700 hover:bg-slate-100 transform duration-300' type='button'>Open ended</button>

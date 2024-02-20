@@ -1,5 +1,6 @@
 "use client"
 import React from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { FormEvent } from 'react'
 import { signIn } from 'next-auth/react';
@@ -49,7 +50,14 @@ const Google = () => {
   
 
 export default function Login() {
+
     const router = useRouter()
+    const {data:session} = useSession();
+    useEffect(() => {
+        if (session) {
+            redirect('/');
+        }
+    }, [session]);
     
     async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -63,23 +71,19 @@ export default function Login() {
             redirect: false,
           });
       
-          console.log({ response });
+        //   console.log({ response });
           if (!response?.error) {
             router.push('/');
-            router.refresh();
+            // router.refresh();
           }
     }
-    const {data:session} = useSession();
-    if(session){
-        router.push('/');
-    }
-
+    
     return (
         <div className="form-container ">
             <div className="flex justify-center items-center mt-10 p-10 max-w-auto ">
                 <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center box-shadow p-6 border min-w-80 border-slate-300 shadow-md rounded-xl">
                     <h1 className="mt-0 text-center mb-1 font-semibold text-blue-500 text-xl">Login</h1>
-                    <h1 className='text-xs mb-4 '>Don&apos;t have an account ? <Link className='hover:underline underline-offset-2 decoration-black ' href="/pages/signup">SignUp</Link></h1>
+                    <h1 className='text-xs mb-4 '>Don&apos;t have an account ? <Link className='hover:underline underline-offset-4 decoration-black ' href="/pages/signup">SignUp</Link></h1>
                     <div className=" mb-4">
                         <h1 className='text-slate-500 text-xs py-1'>Email</h1>
                         <input

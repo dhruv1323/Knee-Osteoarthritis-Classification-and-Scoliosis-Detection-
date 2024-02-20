@@ -1,7 +1,7 @@
 "use client"
 
 import React, { FormEvent } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { redirect, useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 
@@ -24,19 +24,23 @@ export default function SignUp() {
                 answer: formData.get('answer'),
               }),
             });
-            if (response.ok) {
-                router.push('/pages/login');
-              } else {
-                console.error('Registration failed:', response.status);
-              }
+            useEffect(()=>{
+              if (response.ok) {
+                  router.push('/pages/login');
+                } else {
+                  console.error('Registration failed:', response.status);
+                }
+            },[response])
             } catch (error) {
               console.error('Error during registration:', error);
             }
     };
     const {data:session} = useSession();
-    if(session){
-      router.push('/');
-    }
+    useEffect(() => {
+      if (session) {
+          redirect('/');
+      }
+  }, [session]);
 
     return (
         <div className="form-container flex justify-center mt-10 p-10 max-w-auto">
