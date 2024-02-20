@@ -3,20 +3,21 @@
 import { useRef, useState, useEffect} from "react";
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import Image from "next/image";
-export const dynamic = 'force-dynamic'
+import { Suspense } from "react";
 
-export default function UploadImagePage(){
+
+const UploadImagePage = () =>{
 
     // const router = useRouter();
-    const pathname = usePathname();
+    // const pathname = usePathname();
     const searchParams = useSearchParams();
     const name = searchParams.get('name')
 
 
-    useEffect(() => {
-        const url = `${pathname}?${searchParams}`
-        console.log(url)
-      }, [pathname, searchParams])
+    // useEffect(() => {
+    //     const url = `${pathname}?${searchParams}`
+    //     console.log(url)
+    //   }, [pathname, searchParams])
 
     const [dragActive, setDragActive] = useState<boolean>(false);
     const inputRef = useRef<any>(null);
@@ -119,3 +120,10 @@ export default function UploadImagePage(){
             </div>
     )
 }
+
+const SuspendedUploadImagePage = () => (
+    <Suspense fallback={<div>Loading...</div>}>
+      <UploadImagePage />
+    </Suspense>
+  );
+  export default SuspendedUploadImagePage;
