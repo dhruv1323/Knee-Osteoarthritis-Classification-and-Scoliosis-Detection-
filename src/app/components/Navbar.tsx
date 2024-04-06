@@ -83,7 +83,7 @@ const Navbar = () => {
   const {data:session} = useSession();
 
   return (
-    <nav id="top" className="sticky w-full h-20 md:h-24 mx-auto md:px-12 md:flex md:justify-between md:items-center bg-white  border z-20 ">
+    <nav id="top" className="sticky w-full h-20 md:h-24 mx-auto md:px-12 md:flex md:justify-between md:items-center bg-white  border-b-2 border-slate-300 shadow-lg z-20 ">
       <div className="flex justify-between items-center mt-3 md:mt-0">
         <div className="flex items-center mx-2 md:mx-0">
           <Image

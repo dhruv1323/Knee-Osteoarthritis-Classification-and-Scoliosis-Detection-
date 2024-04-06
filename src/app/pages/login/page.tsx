@@ -81,9 +81,9 @@ export default function Login() {
     return (
         <div className="form-container ">
             <div className="flex justify-center items-center mt-10 p-10 max-w-auto ">
-                <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center box-shadow p-6 border min-w-80 border-slate-300 shadow-md rounded-xl">
+                <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center shadow-2xl p-6 border-2 min-w-80 border-slate-300 rounded-xl">
                     <h1 className="mt-0 text-center mb-1 font-semibold text-blue-500 text-xl">Login</h1>
-                    <h1 className='text-xs mb-4 '>Don&apos;t have an account ? <Link className='hover:underline underline-offset-4 decoration-black ' href="/pages/signup">SignUp</Link></h1>
+                    <h1 className='text-xs mb-4 '>Don&apos;t have an account ? <Link className='underline underline-offset-4 decoration-black ' href="/pages/signup">SignUp</Link></h1>
                     <div className=" mb-4">
                         <h1 className='text-slate-500 text-xs py-1'>Email</h1>
                         <input
@@ -123,13 +123,13 @@ export default function Login() {
                     </div>
                     <h1 className='mt-4 mb-4'>or</h1>
                     <div className="flex items-center justify-center gap-4">
-                        <div className='relative h-10 w-20 border border-slate-400 rounded'>
+                        <div className='relative h-10 w-20 border shadow-xl border-slate-400 rounded'>
                             <Google/>
                         </div>
-                        <div className='relative h-10 w-20 ml-1 mr-1 border border-slate-400 rounded'>
+                        <div className='relative h-10 w-20 ml-1 mr-1 border shadow-xl border-slate-400 rounded'>
                             <Facebook/>
                         </div>
-                        <div className='relative h-10 w-20 border border-slate-400 rounded'>
+                        <div className='relative h-10 w-20 border shadow-xl border-slate-400 rounded'>
                             <Twitterx/>
                         </div>
                     </div>

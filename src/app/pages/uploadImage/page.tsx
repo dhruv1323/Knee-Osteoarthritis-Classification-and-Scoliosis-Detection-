@@ -5,6 +5,7 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { Suspense } from "react";
 import { motion, useAnimate } from "framer-motion";
+import { tree } from "next/dist/build/templates/app-page";
 // import { error } from "console";
 
 const UploadImagePage = () => {
@@ -63,26 +64,46 @@ const UploadImagePage = () => {
 
     console.log(formData.get("file"));
 
-    fetch("http://localhost:5000/predict", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
-        // console.log('Response text:', response.text());
-        return response.json();
+    if(name === "osteoarthritis"){
+      fetch("http://localhost:5000/predict", {
+        method: "POST",
+        body: formData,
       })
-      .then((data) => {
-        const predictedClassId = data.class_id;
-        console.log("Predicted class ID:", predictedClassId);
+        .then((response) => {
+          // console.log('Response text:', response.text());
+          return response.json();
+        })
+        .then((data) => {
+          const predictedClassId = data.class_id;
+          console.log("Predicted class ID:", predictedClassId);
 
-      // Map the class ID to a human-readable class name if needed
-      // const predictedClassName = mapClassIdToName(predictedClassId);
 
-      setPredictedClass(predictedClassId);
-      })
-      .catch((error) => {
-        console.error("Error making prediction request: ", error);
-      });
+        setPredictedClass(predictedClassId);
+        })
+        .catch((error) => {
+          console.error("Error making prediction request: ", error);
+        });
+      }
+      else if( name === "scoliosis" ){
+        fetch("http://localhost:5000/predict2", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => {
+            // console.log('Response text:', response.text());
+            return response.json();
+          })
+          .then((data) => {
+            const predictedClassId = data.class_id;
+            console.log("Predicted class ID:", predictedClassId);
+  
+  
+          setPredictedClass(predictedClassId);
+          })
+          .catch((error) => {
+            console.error("Error making prediction request: ", error);
+          });
+      }
   }
 
   // function handleReport(e: any) {
@@ -121,7 +142,9 @@ const UploadImagePage = () => {
   }
 
   const [scope, animate] = useAnimate();
+  const [isPredict , setIsPredict] = useState(false)
   const handlePredict = async () => {
+    setIsPredict(true);
     animate("#target_1", { x: -160 });
     animate("#target_2", { x: 210 });
     animate("#tg_1", { opacity: 100 });
@@ -140,9 +163,15 @@ const UploadImagePage = () => {
           </h1>
         </div>
       ) : (
-        <h1 className="md:mt-10 md:mb-12 md:text-2xl hidden md:block md:text-center">
+        <>
+        <h1 className={`${isPredict ? "md:hidden" : "" } md:mt-10 md:mb-12 md:text-2xl md:block  md:text-center`}>
           Predict Result
         </h1>
+        <h1 className={`${isPredict ? "" : "md:hidden" } md:mt-10 md:mb-12 md:text-2xl md:block md:text-center`}>
+          Predicted Result
+        </h1>
+
+        </>
       )}
       <div
         ref={scope}
@@ -156,7 +185,7 @@ const UploadImagePage = () => {
           onDrop={handleDrop}
           onDragLeave={handleDragLeave}
           onDragOver={handleDragOver}
-          className="relative grid grid-flow-row row-start-1 col-start-1 w-[350px] h-[323px] border-dashed border-slate-300 border-2 rounded-md mb-8 overflow-hidden"
+          className="relative grid grid-flow-row row-start-1 col-start-1 w-[350px] h-[323px] border-dashed border-slate-400 border-2 shadow-lg rounded-md mb-8 overflow-hidden"
         >
           <input
             placeholder="fileInput"
@@ -183,7 +212,7 @@ const UploadImagePage = () => {
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 alt="Drop Image here"
-                className="absolute w-full h-full z-10 object-cover opacity-20"
+                className="absolute w-full h-full z-10 object-cover opacity-30"
               />
             )}
           </div>
@@ -206,7 +235,7 @@ const UploadImagePage = () => {
         {/* Second Div */}
         <div
           id="target_2"
-          className="grid grid-flow-row border-2  w-[350px] h-[323px] z-0 mb-8 row-start-1 col-start-1"
+          className="grid grid-flow-row border  w-[350px] h-[323px] z-0 mb-8 row-start-1 col-start-1"
         >
           <div id="tg_1" className="border-2 opacity-0 p-8 w-full h-40">
             <h1 className="mt-6 ml-14 ">Predicted class: {predictedClass}</h1>
@@ -239,9 +268,9 @@ const UploadImagePage = () => {
             {!file ? (
               <button
                 // onClick={handleReport}
-                className={`bg-stone-50 rounded-md border-dashed border-slate-400 border-2 text-black px-4 py-1 hover:text-sky-700 hover:border-sky-700 hover:bg-slate-100 transform duration-300 ${
+                className={`bg-stone-50 rounded-md border-dashed border-sky-700 border-2 text-black px-4 py-1 hover:text-sky-700 hover:border-sky-700 hover:bg-slate-100 transform duration-300 ${
                   name === "scoliosis"
-                    ? "text-sky-700 border-sky-700 bg-sky-100"
+                    ? "text-sky-700 border-sky-700 bg-slate-100"
                     : " border-slate-400 border-2 text-black px-4"
                 }`}
                 type="button"
@@ -251,11 +280,7 @@ const UploadImagePage = () => {
             ) : (
               <button
                 onClick={handlePredict}
-                className={`bg-stone-50 rounded-md  border-slate-400 border-2 text-black px-4 py-1 hover:text-sky-700 hover:border-sky-700 hover:bg-slate-100 transform duration-300 ${
-                  name === "scoliosis"
-                    ? "text-sky-700 border-sky-700 bg-sky-100"
-                    : " border-slate-400 border-2 text-black px-4"
-                }`}
+                className="bg-stone-50 rounded-md  border-slate-400 border-2 text-black px-4 py-1 hover:text-sky-700 hover:border-sky-700 hover:bg-slate-100 transform duration-300"
                 type="button"
               >
                 Predict
@@ -265,9 +290,9 @@ const UploadImagePage = () => {
           <div>
             {!file ? (
               <button
-                className={`bg-stone-50 rounded-md border-dashed border-slate-400 border-2 text-black px-4 py-1 hover:text-sky-700 hover:border-sky-700 hover:bg-slate-100 transform duration-300 ${
+                className={`bg-stone-50 rounded-md border-dashed border-sky-700 border-2 text-black px-4 py-1 hover:text-sky-700 hover:border-sky-700 hover:bg-slate-100 transform duration-300 ${
                   name === "osteoarthritis"
-                    ? "text-sky-700 border-sky-700 bg-sky-100"
+                    ? "text-sky-700 border-sky-700 bg-slate-100"
                     : " border-slate-400 border-2 text-black px-4"
                 }`}
                 type="button"
