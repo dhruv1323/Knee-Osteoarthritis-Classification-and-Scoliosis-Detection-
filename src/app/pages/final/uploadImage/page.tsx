@@ -1,28 +1,24 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { Suspense } from "react";
-import { motion, useAnimate } from "framer-motion";
-import { tree } from "next/dist/build/templates/app-page";
-// import { error } from "console";
+import { useAnimate } from "framer-motion";
+import {
+  useRecoilState,
+} from 'recoil';
+import { predictedState } from "@/lib/utils";
+
 
 const UploadImagePage = () => {
-  // const router = useRouter();
-  // const pathname = usePathname();
   const searchParams = useSearchParams();
   const name = searchParams.get("name");
-
-  // useEffect(() => {
-  //     const url = `${pathname}?${searchParams}`
-  //     console.log(url)
-  //   }, [pathname, searchParams])
 
   const [dragActive, setDragActive] = useState<boolean>(false);
   const inputRef = useRef<any>(null);
   const [file, setFile] = useState<any>("");
-  const [predictedClass, setPredictedClass] = useState(null);
+  const [predictedClass, setPredictedClass] = useRecoilState(predictedState);
 
   function handleDragEnter(e: any) {
     e.preventDefault();
@@ -106,36 +102,6 @@ const UploadImagePage = () => {
       }
   }
 
-  // function handleReport(e: any) {
-  //   e.preventDefault();
-  //   console.log("File has been added");
-  //   if (e.target.files && e.target.files[0]) {
-  //     console.log(e.target.files[0]);
-  //     setFile(e.target.files[0]);
-  //   }
-  //   console.log(file.name);
-
-  //   const formData = new FormData();
-  //   formData.append("file", e.target.files[0]);
-
-  //   console.log(formData.get("file"));
-
-  //   fetch("http://localhost:5000/report", {
-  //     method: "POST",
-  //     body: formData,
-  //   })
-  //     .then((response) => {
-  //       // console.log('Response text:', response.text());
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       console.log("Predictions result", data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error making prediction request: ", error);
-  //     });
-  // }
-
   function openFileExplorer() {
     inputRef.current.value = "";
     inputRef.current.click();
@@ -143,12 +109,15 @@ const UploadImagePage = () => {
 
   const [scope, animate] = useAnimate();
   const [isPredict , setIsPredict] = useState(false)
+  const router = useRouter();
+  
   const handlePredict = async () => {
     setIsPredict(true);
-    animate("#target_1", { x: -160 });
-    animate("#target_2", { x: 210 });
-    animate("#tg_1", { opacity: 100 });
-    animate("#tg_2", { opacity: 100 });
+    router.push("/pages/final/result")
+    // animate("#target_1", { x: -160 });
+    // animate("#target_2", { x: 210 });
+    // animate("#tg_1", { opacity: 100 });
+    // animate("#tg_2", { opacity: 100 });
   };
 
   return (
@@ -310,8 +279,8 @@ const UploadImagePage = () => {
 };
 
 const SuspendedUploadImagePage = () => (
-  <Suspense fallback={<div>Loading...</div>}>
-    <UploadImagePage />
-  </Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
+      <UploadImagePage />
+    </Suspense>
 );
 export default SuspendedUploadImagePage;

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
+    <div className="h-screen">
       <div className="relative ">
         <div className="absolute p-6 md:p-12 z-10">
           <h1 className="text-4xl mt-4 md:mt-0 mb-20 rounded bg-sky-200 max-w-80 leading-tight font-bold text-wrap">
@@ -36,7 +36,7 @@ export default function Home() {
               <div>
                 <Link
                   href={{
-                    pathname: "/pages/uploadImage",
+                    pathname: "/pages/final/uploadImage",
                     query: { name: "scoliosis" },
                   }}
                 >
@@ -68,7 +68,7 @@ export default function Home() {
                 <div>
                   <Link
                     href={{
-                      pathname: "/pages/uploadImage",
+                      pathname: "/pages/final/uploadImage",
                       query: { name: "osteoarthritis" },
                     }}
                   >

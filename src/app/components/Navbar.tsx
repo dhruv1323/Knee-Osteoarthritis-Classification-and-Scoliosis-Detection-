@@ -123,7 +123,7 @@ const Navbar = () => {
                   <Link
                         onClick={handleClick}
                         href={{
-                          pathname: "/pages/uploadImage",
+                          pathname: "/pages/final/uploadImage",
                           query: { name: "scoliosis" },
                         }}
                     >
@@ -134,7 +134,7 @@ const Navbar = () => {
                   <Link
                         onClick={handleClick}
                         href={{
-                          pathname: "/pages/uploadImage",
+                          pathname: "/pages/final/uploadImage",
                           query: { name: "osteoarthritis" },
                         }}
                     >
