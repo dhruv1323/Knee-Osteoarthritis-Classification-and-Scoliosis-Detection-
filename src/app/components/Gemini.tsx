@@ -1,18 +1,19 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { marked } from "marked";
 import {
   GoogleGenerativeAI,
   HarmCategory,
   HarmBlockThreshold,
 } from "@google/generative-ai";
+import { getFile } from "@/lib/utils";
+import { useRecoilValue } from "recoil";
 
-
-// let disease = "KneeOA";
 const MODEL_NAME = "gemini-1.0-pro";
 const API_KEY = "AIzaSyCAu7zkum0hhG8dAq2Y25UHJHzSJJ1XMG4";
 
-const Gemini = ({ predictedClass } ) => {
+const Gemini = ({ predictedClass }) => {
   const genAI = new GoogleGenerativeAI(API_KEY);
   console.log(predictedClass);
 
@@ -34,12 +35,6 @@ const Gemini = ({ predictedClass } ) => {
       threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
     },
   ];
-
-  // interface ParsedData {
-  //     severity: string;
-  //     explanation: string;
-  //     tips: string[];
-  // }
 
   const [aiResponse, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
@@ -78,7 +73,7 @@ const Gemini = ({ predictedClass } ) => {
           role: "model",
           parts: [
             {
-              text: "Example 3 (Severe):        \nInput: Your X-ray shows severe signs of osteoarthritis.        \nOutput: Knee Osteoarthritis          \nSeverity: Severe          \nExplanation: Your X-ray indicates severe osteoarthritis (OA) in your knee. This means there's significant wear and tear on the cartilage, leading to bone-on-bone contact.          \nTips (optional):         \nSeek medical attention for proper diagnosis and treatment options.         \nConsider assistive devices like a cane or walker to support mobility.",
+              text: "(If predictedClass is Scoliosis and Scol_Normal do not include severity), Example 3  (Severe):        \nInput: Your X-ray shows severe signs of osteoarthritis.        \nOutput: Knee Osteoarthritis          \nSeverity: Severe          \nExplanation: Your X-ray indicates severe osteoarthritis (OA) in your knee. This means there's significant wear and tear on the cartilage, leading to bone-on-bone contact.          \nTips (optional):         \nSeek medical attention for proper diagnosis and treatment options.         \nConsider assistive devices like a cane or walker to support mobility.",
             },
           ],
         },
@@ -87,59 +82,39 @@ const Gemini = ({ predictedClass } ) => {
 
     const result = await chat.sendMessage(predictedClass);
     const response = result.response;
-
     const text = response.text();
-
-    // function markdownToNormal(text) {
-    //     let normalText = text.replace(/\*\*(.*?)\*\*/g, '$1');
-
-    //     normalText = normalText.replace(/\*(.*?)\*/g, '$1');
-
-    //     normalText = normalText.replace(/\n/g, ' ');
-
-    //     normalText = normalText.trim();
-
-    //     return normalText;
-    // }
-    // const ans = markdownToNormal(text)
 
     const parsedText = await marked(text);
     console.log(parsedText);
-    //   const severityRegex = /### Severity: (.*)/;
-    //   const explanationRegex = /### Explanation: (.*)^/s; // Add `^` for line beginning
-    //   const tipsRegex = /### Tips \(optional\):\n(.*)/s; // Matches tips section with optional line breaks
-
-    //   const severityMatch = severityRegex.exec(parsedText);
-    //   const explanationMatch = explanationRegex.exec(parsedText);
-    //   const tipsMatch = tipsRegex.exec(parsedText);
-
-    //   const parsedData = {
-    //     severity: severityMatch ? severityMatch[1].trim() : null,
-    //     explanation: explanationMatch ? explanationMatch[1].trim() : null,
-    //     tips: tipsMatch ? tipsMatch[1].split('\n').filter(tip => tip.trim()) : [],
-    //   };
 
     setResponse(parsedText);
     setLoading(false);
   }
+
   useEffect(() => {
-    aiRun(); // Run aiRun function when component mounts or when predictedClass changes
+    aiRun();
   }, [predictedClass]);
 
-  // async function getGeminiInsights(predictedClass) {
-  //     const basePrompt = "Based on an X-ray analysis, ";
-  //     let prompt;
-  //     // const response = await fetchGeminiAPI(prompt); // Replace with actual API call
-  //     // ... process Gemini's response and display insights to the user
-  //   }
+  const file = useRecoilValue(getFile);
 
   return (
     <div className="h-full">
       {loading && <p>Loading ...</p>}
       {aiResponse && (
         <>
-          <div className="m-14 flex h-5/6 flex-row">
-            <div className="border h-full w-1/2 p-5 rounded-l-lg bg-gray-200"></div>
+          <div className="m-14 flex h-5/6 flex-row rounded-xl border-solid border-4">
+            <div className="border w-1/2 p-5 flex justify-center items-center rounded-l-lg bg-gray-200 relative">
+              <Image
+                src={URL.createObjectURL(file)}
+                // fill
+                objectFit="contain"
+                alt="User Image"
+                width={413}
+                height={463}
+                placeholder="empty" // "empty" | "blur" | "data:image/..."
+                className="overflow-hidden max-h-96 object-cover inset-0 rounded-xl border-solid border-2 border-slate-200"
+              />
+            </div>
             <div
               className="flex flex-col justify-center h-full w-1/2 rounded-r-lg p-5 bg-gray-200"
               dangerouslySetInnerHTML={{ __html: aiResponse }}

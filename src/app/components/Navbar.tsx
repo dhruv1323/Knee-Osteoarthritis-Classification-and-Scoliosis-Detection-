@@ -10,13 +10,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { signOut } from "next-auth/react";
-// import { getServerSession } from "next-auth";
 import { useSession } from "next-auth/react";
+// import { getFile } from "@/lib/utils";
+// import { useRecoilValue } from "recoil";
+
+
 
 
 
 
 const ChevronDownIcon = () => {
+  // const file = useRecoilValue(getFile);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -65,21 +69,7 @@ const Navbar = () => {
     });
     setOpen(!open);
   };
-  // const [session, setSession] = useState(null);
 
-  // useEffect(() => {
-  //   const fetchSession = async () => {
-  //     try {
-  //       const serverSession = await getServerSession();
-  //       console.log(serverSession);
-  //       setSession(serverSession);
-  //     } catch (error) {
-  //       console.error('Error fetching session:', error);
-  //     }
-  //   };
-
-  //   fetchSession();
-  // }, []);
   const {data:session} = useSession();
 
   return (

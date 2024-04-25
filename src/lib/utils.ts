@@ -11,3 +11,8 @@ export const predictedState = atom({
   key: "predictedState",
   default: "",
 })
+
+export const getFile = atom({
+  key: "getfile",
+  default: <any>"",
+})

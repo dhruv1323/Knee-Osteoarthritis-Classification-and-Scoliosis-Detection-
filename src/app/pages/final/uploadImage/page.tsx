@@ -9,6 +9,7 @@ import {
   useRecoilState,
 } from 'recoil';
 import { predictedState } from "@/lib/utils";
+import { getFile } from "@/lib/utils";
 
 
 const UploadImagePage = () => {
@@ -17,7 +18,7 @@ const UploadImagePage = () => {
 
   const [dragActive, setDragActive] = useState<boolean>(false);
   const inputRef = useRef<any>(null);
-  const [file, setFile] = useState<any>("");
+  const [file, setFile] = useRecoilState(getFile);
   const [predictedClass, setPredictedClass] = useRecoilState(predictedState);
 
   function handleDragEnter(e: any) {
@@ -54,7 +55,7 @@ const UploadImagePage = () => {
       console.log(e.target.files[0]);
       setFile(e.target.files[0]);
     }
-    console.log(file.name);
+    // console.log(file.name);
     const formData = new FormData();
     formData.append("file", e.target.files[0]);
 
@@ -72,9 +73,7 @@ const UploadImagePage = () => {
         .then((data) => {
           const predictedClassId = data.class_id;
           console.log("Predicted class ID:", predictedClassId);
-
-
-        setPredictedClass(predictedClassId);
+          setPredictedClass(predictedClassId);
         })
         .catch((error) => {
           console.error("Error making prediction request: ", error);
@@ -137,7 +136,7 @@ const UploadImagePage = () => {
           Predict Result
         </h1>
         <h1 className={`${isPredict ? "" : "md:hidden" } md:mt-10 md:mb-12 md:text-2xl md:block md:text-center`}>
-          Predicted Result
+          Analyzing Result ...
         </h1>
 
         </>
