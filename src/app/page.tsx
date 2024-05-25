@@ -63,7 +63,7 @@ export default function Home() {
                   Knee osteoarthritis is a degenerative joint condition causing
                   pain, stiffness, and swelling in the knee. It results from
                   cartilage breakdown and can be managed through pain
-                  medications, lifestyle changes, physical therapy.{" "}
+                  medications, lifestyle changes, physical therapy and medical consultation.{" "}
                 </p>
                 <div>
                   <Link

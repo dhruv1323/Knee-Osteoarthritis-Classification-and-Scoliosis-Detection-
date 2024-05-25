@@ -11,7 +11,7 @@ import { getFile } from "@/lib/utils";
 import { useRecoilValue } from "recoil";
 
 const MODEL_NAME = "gemini-1.0-pro";
-const API_KEY = "AIzaSyCAu7zkum0hhG8dAq2Y25UHJHzSJJ1XMG4";
+const API_KEY = "AIzaSyCoH_5Vad_i9uF8oqKvafzxFdsN1igrgVM";
 
 
 const Gemini = ({ predictedClass }) => {

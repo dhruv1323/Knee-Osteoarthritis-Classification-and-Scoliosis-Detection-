@@ -12,7 +12,7 @@ export default function Home(){
             <div className="">
               <Image
                 alt="Doctor with Xray"
-                src='/images/Condition_Hero_Grouping_Osteoarthritis.webp'
+                src='/images/Osteoarthritis.webp'
                 quality={100}
                 height={100}
                 width={100}
@@ -27,12 +27,12 @@ export default function Home(){
               />
             </div>
             <div className="flex flex-col mt-4 md:flex md:flex-row justify-center items-center gap-2 md:gap-8 md:p-8 ">
-            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Overview</h1>
-            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Symptoms</h1>
-            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Causes</h1>
-            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Treatment</h1>
-            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Prevention</h1>
-            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Complications</h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500"><a href="https://www.webmd.com/back-pain/video/video-scoliosis-overview">Overview</a></h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500"><a href="https://www.webmd.com/back-pain/do-i-have-scioliosis">Symptoms</a></h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500"><a href="https://www.webmd.com/back-pain/causes-scoliosis">Causes</a></h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500"><a href="https://www.webmd.com/back-pain/treatment-for-scoliosis">Treatment</a></h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500"><a href="https://www.webmd.com/back-pain/best-exercises-scoliosis">Prevention</a></h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500"><a href="https://www.webmd.com/back-pain/types-of-spine-curvature-disorders">Complications</a></h1>
         </div>
       </div>
     )

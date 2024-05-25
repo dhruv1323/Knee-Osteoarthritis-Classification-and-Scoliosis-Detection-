@@ -11,7 +11,7 @@ export default function Home(){
             </div>
         <Image
           alt="Doctor with Xray"
-          src='/images/Osteoarthritis.webp'
+          src='/images/scoliosis_hero_image.webp'
           quality={100}
           height={480}
           width={1600}
@@ -25,12 +25,12 @@ export default function Home(){
           className="border-b-0 border-slate-300 shadow-md mb-6 min-h-52"
         />
         <div className="flex flex-col mt-4 md:flex md:flex-row justify-center items-center gap-2 md:gap-8 md:p-8 ">
-            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Overview</h1>
-            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Symptoms</h1>
-            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Causes</h1>
-            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Treatment</h1>
-            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Prevention</h1>
-            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500">Complications</h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500"><a href="https://www.webmd.com/osteoarthritis/osteoarthritis-basics">Overview</a></h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500"><a href="https://www.webmd.com/osteoarthritis/osteoarthritis-symptoms">Symptoms</a></h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500"><a href="https://www.webmd.com/osteoarthritis/osteoarthritis-causes">Causes</a></h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500"><a href="https://www.webmd.com/osteoarthritis/options-basics">Treatment</a></h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500"><a href="https://www.webmd.com/osteoarthritis/osteoarthritis-prevention-1">Prevention</a></h1>
+            <h1 className="text-lg font-medium text-blue-600 hover:underline underline-offset-4 decoration-black-500"><a href="https://www.webmd.com/osteoarthritis/osteoarthritis-complications">Complications</a></h1>
         </div>
       </div>
     )
